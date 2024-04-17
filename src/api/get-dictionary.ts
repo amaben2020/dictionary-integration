@@ -1,10 +1,13 @@
+'use server';
+
 import axios from 'axios';
 
-export const geDictionary = async (searchTerm: string): Promise<any> => {
+export const getDictionary = async (searchTerm: string): Promise<any> => {
   try {
     const { data } = await axios.get(
       `https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`
     );
+    console.log(data);
     return data;
   } catch (error) {
     if (error instanceof Error) {
