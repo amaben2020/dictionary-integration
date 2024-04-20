@@ -12,8 +12,8 @@ const Map = () => {
   // MARKERS ARRAY FOR EASE
   const markers = [
     {
-      geocode: [51.55, -0.09],
-      popUp: 'Pop up for marker 1',
+      geocode: [9.1332, 7.3696],
+      popUp: 'Kubwa',
     },
     {
       geocode: [51.5, -0.1],
@@ -27,14 +27,18 @@ const Map = () => {
 
   return (
     <MapContainer
-      center={[51.505, -0.09]}
+      center={[9.082, 8.6753]}
       zoom={13}
       style={{ height: '400px' }}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {/* MARKERS */}
       {markers.map((marker) => (
-        <Marker position={marker.geocode} icon={customIcon} key={marker.popUp}>
+        <Marker
+          position={marker.geocode as [number, number]}
+          icon={customIcon}
+          key={marker.popUp}
+        >
           <Popup>{marker.popUp}</Popup>
         </Marker>
       ))}
