@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 
 interface IError {
   error: string;
@@ -19,9 +17,9 @@ export const addComments = async (
       userId: 1,
     });
 
-    // update data in test page
-    revalidatePath('/test');
-    redirect('/');
+    // you should only revalidate static pages
+    // revalidatePath('/test');
+    // redirect('/');
   } catch (error) {
     if (error instanceof Error)
       return {
