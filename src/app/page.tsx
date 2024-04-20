@@ -1,5 +1,6 @@
 import { getDictionary } from '@/api/get-dictionary';
 import { searchAction } from './actions';
+import TransitionLink from './components/TransitionLink';
 
 export default async function Home({
   searchParams,
@@ -22,6 +23,9 @@ export default async function Home({
       </form>
 
       {JSON.stringify(data)}
+
+      <h1 className="text-5xl">HOME PAGE</h1>
+      <TransitionLink href="/about" label="About ->" />
     </main>
   );
 }
